@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
-<body>
-  
-  <audio id="myAudio" src="haitam1.mp3" autoplay loop muted></audio>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تشغيل الصوت</title>
+</head>
+<body style="text-align:center; margin-top:50px; font-family:sans-serif;">
 
-  <script>
-    window.addEventListener("load", function () {
-      let audio = document.getElementById("myAudio");
 
-     
-      audio.play().then(() => {
-       
-        audio.muted = false;
-        console.log("تشغل الصوت أوتوماتيكياً ✅");
-      }).catch(err => {
-        console.log("المتصفح منع autoplay:", err);
-      });
+<button id="playBtn" style="padding:10px 20px; font-size:16px; cursor:pointer;">▶ شغل الصوت</button>
+
+
+<audio id="myAudio" src="haitam1.mp3" loop></audio>
+
+<script>
+const audio = document.getElementById("myAudio");
+const btn = document.getElementById("playBtn");
+
+
+btn.addEventListener("click", () => {
+    audio.play().then(() => {
+        btn.style.display = "none"; 
+        console.log("الصوت تشغل ✅");
+    }).catch(err => {
+        console.log("المتصفح منع التشغيل:", err);
     });
-  </script>
+});
+</script>
 
 </body>
 </html>
-
-
-
