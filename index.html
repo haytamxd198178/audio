@@ -2,11 +2,24 @@
 <html>
 <body>
   
-  <audio src="haitam1.mp3" autoplay loop ></audio>
+  <audio id="myAudio" src="haitam1.mp3" autoplay loop muted></audio>
 
-  
+  <script>
+    window.addEventListener("load", function () {
+      let audio = document.getElementById("myAudio");
+
+     
+      audio.play().then(() => {
+       
+        audio.muted = false;
+        console.log("تشغل الصوت أوتوماتيكياً ✅");
+      }).catch(err => {
+        console.log("المتصفح منع autoplay:", err);
+      });
+    });
+  </script>
+
 </body>
-
 </html>
 
 
